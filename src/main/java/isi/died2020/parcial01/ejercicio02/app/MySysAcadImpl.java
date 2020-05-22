@@ -7,6 +7,8 @@ import isi.died2020.parcial01.ejercicio02.db.BaseDeDatos;
 import isi.died2020.parcial01.ejercicio02.db.BaseDeDatosExcepcion;
 import isi.died2020.parcial01.ejercicio02.dominio.*;
 
+import static isi.died2020.parcial01.ejercicio02.dominio.Inscripcion.Estado.PROMOCIONADO;
+
 
 public class MySysAcadImpl implements MySysAcad {
 	private static final BaseDeDatos DB = new BaseDeDatos();
@@ -57,6 +59,25 @@ public class MySysAcadImpl implements MySysAcad {
 		// DESCOMENTAR Y gestionar excepcion
 		// DB.guardar(e);
 	}
-	
+
+	@Override
+	public Double promedio(Docente d, Materia m) {
+		//Hasta aca llegue profe
+		return materia.stream().filter(mat -> mat.getId() == m.getId() && mat.getDocentes().contains(d)).map(m -> m.getExamenes())}
+
+	public void registrarNota(Examen e, Integer nota){
+		e.setNota(nota);
+		Alumno alumno = e.getAlumno();
+		Materia mat = e.getMateria();
+		Inscripcion.Estado est = PROMOCIONADO;
+		if(nota > 6){
+			for(int i=alumno.getMateriasCursadas().size()-1;i >= 0; i--){
+				if(alumno.getMateriasCursadas().get(i).getMateria().getId() == mat.getId()){
+					alumno.getMateriasCursadas().get(i).setEstado(est);
+				}
+			}
+		}
+	}
+
 
 }

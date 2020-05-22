@@ -13,10 +13,11 @@ public class Examen {
 	private LocalDate fecha;
 	
 	
-	
+
 	public Examen() {
 		this.id = ID_GENERATOR++;
 	}
+
 
 	public Examen(Alumno alumno, Materia materia, Docente docente, Integer nota, LocalDate fecha) {
 		this();

@@ -1,5 +1,7 @@
 package isi.died2020.parcial01.ejercicio02.dominio;
 
+import isi.died2020.parcial01.ejercicio02.app.maximoInscException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,9 +76,10 @@ public class Materia {
 		this.docentes.add(d);
 	}
 
-	public void addInscripcion(Inscripcion i) {
+	public void addInscripcion(Inscripcion i){
 		this.inscripciones.add(i);
-		i.setMateria(this);
+		try{i.setMateria(this);}
+		catch(maximoInscException m){System.out.println(m.getMessage());m.printStackTrace();}
 	}
 	
 	public void addExamen(Examen e) {

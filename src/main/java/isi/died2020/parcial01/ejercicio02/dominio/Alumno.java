@@ -10,9 +10,18 @@ public class Alumno {
 	private Integer id;
 	private String nombre;
 
+
+
 	private List<Inscripcion> materiasCursadas;
 	private List<Examen> examenes;
-	
+
+	public List<Inscripcion> getMateriasCursadas() {
+		return materiasCursadas;
+	}
+
+	public List<Examen> getExamenes() {
+		return examenes;
+	}
 	public Alumno() {
 		this.id = ID_GENERATOR++;
 		this.materiasCursadas = new ArrayList<Inscripcion>();

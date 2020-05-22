@@ -1,5 +1,7 @@
 package isi.died2020.parcial01.ejercicio02.dominio;
 
+import isi.died2020.parcial01.ejercicio02.app.maximoInscException;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -44,7 +46,10 @@ public class Inscripcion {
 		return materia;
 	}
 
-	public void setMateria(Materia materia) {
+	public void setMateria(Materia materia) throws maximoInscException {
+		if(materia.getInscripciones().size() == materia.getLimiteInscripciones()){
+			throw new maximoInscException();
+		}
 		this.materia = materia;
 	}
 
@@ -74,4 +79,3 @@ public class Inscripcion {
 	
 	
 }
-s
