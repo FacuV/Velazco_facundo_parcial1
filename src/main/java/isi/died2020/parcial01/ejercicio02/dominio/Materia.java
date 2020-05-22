@@ -8,6 +8,7 @@ public class Materia {
 
 	private Integer id;
 	private String nombre;
+	private int limiteInscripciones;
 	private List<Docente> docentes;
 	private List<Inscripcion> inscripciones;
 	private List<Examen> examenes;
@@ -26,7 +27,17 @@ public class Materia {
 		this.correlativasCursada = new ArrayList<Materia>();
 		this.correlativasRendir = new ArrayList<Materia>();
 		this.nombre = nombre;
+
 	}
+
+	public int getLimiteInscripciones() {
+		return limiteInscripciones;
+	}
+
+	public void setLimiteInscripciones(int limiteInscripciones) {
+		this.limiteInscripciones = limiteInscripciones;
+	}
+
 	public Integer getId() {
 		return id;
 	}
